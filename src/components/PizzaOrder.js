@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { toppings } from "./toppings";
 
 export default function PizzaOrder(props) {
   const { values, change, submit, disabled, errors } = props;
@@ -24,12 +25,16 @@ export default function PizzaOrder(props) {
         </label>
         <label>
           Size
-          <select>
+          <select id="size-dropdown">
             <option value="">---Select a Size</option>
             <option value="small">Small</option>
             <option value="medium">medium</option>
             <option value="large">Large</option>
           </select>
+        </label>
+        <label>
+          Toppings
+          <select></select>
         </label>
         <label>
           Special Instructions
@@ -39,6 +44,7 @@ export default function PizzaOrder(props) {
             value={values.instructions}
             name="instructions"
             onChange={onChange}
+            id="special-instruction"
           />
         </label>
       </form>
