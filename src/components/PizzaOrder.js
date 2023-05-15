@@ -1,5 +1,4 @@
 import React from "react";
-import { toppings } from "./toppings";
 
 export default function PizzaOrder(props) {
   const { values, change, submit, disabled, errors } = props;
@@ -8,46 +7,85 @@ export default function PizzaOrder(props) {
     const { name, value, checked, type } = evt.target;
     const valueToUse = type === "checked" ? checked : value;
     change(name, valueToUse);
+    // console.log(evt.target);
+  };
+
+  const onSubmit = (evt) => {
+    evt.preventDefault();
+    submit();
   };
   return (
-    <div id="pizza=form">
-      <form>
-        <label>
-          Name
-          <input
-            type="text"
-            name="username"
-            placeholder="Enter Name Here"
-            id="name-input"
-            value={values.username}
-            // onChange={onChange}
-          />
-        </label>
-        <label>
-          Size
-          <select id="size-dropdown">
-            <option value="">---Select a Size</option>
-            <option value="small">Small</option>
-            <option value="medium">medium</option>
-            <option value="large">Large</option>
-          </select>
-        </label>
-        <label>
-          Toppings
-          <select></select>
-        </label>
-        <label>
-          Special Instructions
-          <input
-            type="text"
-            placeholder="Put any instruction you have here"
-            value={values.instructions}
-            name="instructions"
-            onChange={onChange}
-            id="special-instruction"
-          />
-        </label>
-      </form>
-    </div>
+    <form id="pizza-form" onSubmit={onSubmit}>
+      <p>{errors.username}</p>
+      <label>
+        Name
+        <input
+          type="text"
+          name="username"
+          placeholder="Enter Name Here"
+          id="name-input"
+          value={values.username}
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Size
+        <select id="size-dropdown">
+          <option value="">---Select a Size---</option>
+          <option value="small">Small</option>
+          <option value="medium">medium</option>
+          <option value="large">Large</option>
+        </select>
+      </label>
+      Toppings:&nbsp;
+      <label>
+        Pepperoni
+        <input
+          checked={values.topping1}
+          type="checkbox"
+          name="topping1"
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Sausage
+        <input
+          checked={values.topping2}
+          type="checkbox"
+          name="topping2"
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Peppers
+        <input
+          checked={values.topping3}
+          type="checkbox"
+          name="topping3"
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Mushrooms
+        <input
+          checked={values.topping4}
+          type="checkbox"
+          name="topping4"
+          onChange={onChange}
+        />
+      </label>
+      <label>
+        Special Instructions
+        <input
+          type="text"
+          placeholder="Put any instruction you have here"
+          value={values.instructions}
+          name="instructions"
+          onChange={onChange}
+          id="special-text"
+        />
+      </label>
+      <button disabled={disabled}>Submit</button>
+    </form>
   );
 }
