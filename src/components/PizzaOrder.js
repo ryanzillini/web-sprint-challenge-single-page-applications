@@ -90,7 +90,9 @@ export default function PizzaOrder(props) {
           id="special-text"
         />
       </label>
-      <button disabled={disabled}>Submit</button>
+      <button id="order-button" disabled={disabled}>
+        Submit
+      </button>
     </form>
   );
 }

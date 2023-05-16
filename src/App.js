@@ -37,12 +37,10 @@ const App = () => {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const onSubmit = () => {
+  const handleSubmit = () => {
     axios
-      .post(`http://reqres.in/api/orders`)
-      .then((res) => {
-        setOrders([res.data, ...orders]);
-      })
+      .post(`https://reqres.in/api/orders`, formValues)
+      .then((res) => setOrders([res.data, ...orders]))
       .catch((err) => console.error(err))
       .finally(() => setFormValues(initialFormValues));
   };
@@ -60,16 +58,16 @@ const App = () => {
   }, [formValues]);
 
   return (
-    <>
+    <div>
       <h1>Lambda Eats</h1>
       <PizzaOrder
         values={formValues}
         change={inputChange}
-        submit={onSubmit}
+        submit={handleSubmit}
         errors={formErrors}
         disabled={disabled}
       />
-    </>
+    </div>
   );
 };
 export default App;

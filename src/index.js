@@ -6,11 +6,13 @@ import Home from "./components/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/*" element={<Home />} />
-      <Route path="pizza" element={<App />} />
-    </Routes>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="pizza" element={<App />} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>,
   document.getElementById("root")
 );
