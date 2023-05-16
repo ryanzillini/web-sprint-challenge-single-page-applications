@@ -5,8 +5,6 @@ import formSchema from "./components/formSchema";
 import * as yup from "yup";
 
 const App = () => {
-  const initialDisabled = true;
-
   const initialFormValues = {
     username: "",
     size: "",
@@ -27,9 +25,11 @@ const App = () => {
     instructions: "",
   };
 
+  const initialDisabled = false;
+
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [orders, setOrders] = useState([]);
 
   const inputChange = (name, value) => {
@@ -39,7 +39,7 @@ const App = () => {
 
   const onSubmit = () => {
     axios
-      .post(`https://reqres.in/api/orders`)
+      .post(`http://reqres.in/api/orders`)
       .then((res) => {
         setOrders([res.data, ...orders]);
       })

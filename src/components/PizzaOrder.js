@@ -5,9 +5,8 @@ export default function PizzaOrder(props) {
 
   const onChange = (evt) => {
     const { name, value, checked, type } = evt.target;
-    const valueToUse = type === "checked" ? checked : value;
+    const valueToUse = type === "checkbox" ? checked : value;
     change(name, valueToUse);
-    // console.log(evt.target);
   };
 
   const onSubmit = (evt) => {
@@ -28,12 +27,18 @@ export default function PizzaOrder(props) {
           onChange={onChange}
         />
       </label>
+      <p>{errors.size}</p>
       <label>
         Size
-        <select id="size-dropdown">
+        <select
+          id="size-dropdown"
+          name="size"
+          value={values.size}
+          onChange={onChange}
+        >
           <option value="">---Select a Size---</option>
           <option value="small">Small</option>
-          <option value="medium">medium</option>
+          <option value="medium">Medium</option>
           <option value="large">Large</option>
         </select>
       </label>

@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.pizza-order {
+  width: 20%;
+}
