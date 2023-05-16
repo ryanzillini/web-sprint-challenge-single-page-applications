@@ -3,6 +3,7 @@ import PizzaOrder from "./components/PizzaOrder";
 import axios from "axios";
 import formSchema from "./components/formSchema";
 import * as yup from "yup";
+import Home from "./components/Home";
 
 const App = () => {
   const initialFormValues = {
@@ -60,6 +61,7 @@ const App = () => {
   return (
     <div>
       <h1>Lambda Eats</h1>
+      <Home />
       <PizzaOrder
         values={formValues}
         change={inputChange}

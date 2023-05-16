@@ -27,7 +27,6 @@ if (routerVersionNum === 6) {
     it('Homepage at "/" route, has link or button with #order-pizza', () => {
       render(
         <BrowserRouter>
-          <Home />
           <App />
         </BrowserRouter>
       );
@@ -39,7 +38,6 @@ if (routerVersionNum === 6) {
     it('From homepage "/" route, click #order-pizza, navigate to "/pizza" route', () => {
       render(
         <BrowserRouter>
-          <Home />
           <App />
         </BrowserRouter>
       );
